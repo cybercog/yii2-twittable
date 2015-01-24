@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link https://github.com/cybercog/yii2-twittable
+ * @copyright Copyright (c) 2015 Anton Komarev
+ * @license http://opensource.org/licenses/BSD-3-Clause
+ */
 
 namespace cybercog\twittable\models;
 
@@ -42,7 +47,7 @@ class Twitter extends Model
      * @param $message
      * @param $url
      * @param $tags
-     * @return bool
+     * @return Int64
      */
     public function statusUpdate($message, $url, $tags)
     {
@@ -66,6 +71,7 @@ class Twitter extends Model
         $status = trim($status);
         $response = $this->connection->post('statuses/update', array('status' => $status));
         // :TODO: Handle errors
+        // :TODO: Do we need to use $response->to_str here (http://bit.ly/1B4uCzS & http://bit.ly/1B4uCzS)
         return $response->id;
     }
 
@@ -79,7 +85,7 @@ class Twitter extends Model
     }
 
     /**
-     * @param $tagsString
+     * @param $tags
      * @return string
      */
     private function prepareTags($tags)
@@ -93,5 +99,4 @@ class Twitter extends Model
         $tags = implode(' ', $tagsArray);
         return $tags;
     }
-
 }

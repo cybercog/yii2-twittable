@@ -14,10 +14,9 @@ use cybercog\twittable\models\Twitter;
 use yii\helpers\Url;
 
 /**
- * TaggableBehavior
- *
+ * Class TaggableBehavior
+ * @package cybercog\twittable\behaviors
  * @property ActiveRecord $owner
- *
  * @author Anton Komarev <ell@cybercog.su>
  */
 class TwittableBehavior extends AttributeBehavior
