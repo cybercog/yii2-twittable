@@ -5,7 +5,7 @@
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
 
-namespace cybercog\twittable\models;
+namespace cybercog\yii\twittable\models;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 use yii\base\Model;

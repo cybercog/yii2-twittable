@@ -49,7 +49,7 @@ $this->execute($sql);
 ## Configuring
 
 ```php
-use cybercog\twittable\behaviors\TwittableBehavior;
+use cybercog\yii\twittable\behaviors\TwittableBehavior;
 
 /**
  * ...

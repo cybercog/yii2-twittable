@@ -5,12 +5,12 @@
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
 
-namespace cybercog\twittable\behaviors;
+namespace cybercog\yii\twittable\behaviors;
 
 use yii\base\Event;
 use yii\db\BaseActiveRecord;
 use yii\behaviors\AttributeBehavior;
-use cybercog\twittable\models\Twitter;
+use cybercog\yii\twittable\models\Twitter;
 use yii\helpers\Url;
 
 /**
