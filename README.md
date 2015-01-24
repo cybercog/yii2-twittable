@@ -78,6 +78,7 @@ Everything is working automatically right now. When you are creating new model -
 
 ## Todo
 
+- [x] Limit tags count (recomended max 3 tags per tweet)
 - [ ] Configuring what to post: message, tags, url
 - [ ] Handle twitter errors
 - [ ] Manual posting of tweets if tweet isn't exist

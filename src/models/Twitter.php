@@ -21,6 +21,7 @@ class Twitter extends Model
     public $consumerSecret = '';
     public $accessToken = '';
     public $accessTokenSecret = '';
+    public $tagsMaxCount = 3;
 
     private $connection;
 
@@ -91,6 +92,7 @@ class Twitter extends Model
     private function prepareTags($tags)
     {
         $tagsArray = explode(', ', $tags);
+        $tagsArray = array_slice($tagsArray, 0, $this->tagsMaxCount);
         foreach ($tagsArray as &$tag) {
             // spaces & dashes are restricted
             $tag = str_replace(array(' ', '-'), '_', $tag);
