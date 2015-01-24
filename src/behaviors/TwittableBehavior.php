@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/cybercog/yii2-twittable
- * @copyright Copyright (c) 2015 Anton Komarev
+ * @copyright Copyright (c) 2015 LLC CyberCog
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
 
@@ -15,7 +15,7 @@ use yii\helpers\Url;
 
 /**
  * Class TaggableBehavior
- * @package cybercog\twittable\behaviors
+ * @package cybercog\yii\twittable\behaviors
  * @property ActiveRecord $owner
  * @author Anton Komarev <ell@cybercog.su>
  */

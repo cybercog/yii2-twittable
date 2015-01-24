@@ -1,7 +1,7 @@
 <?php
 /**
  * @link https://github.com/cybercog/yii2-twittable
- * @copyright Copyright (c) 2015 Anton Komarev
+ * @copyright Copyright (c) 2015 LLC CyberCog
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
 
@@ -12,7 +12,7 @@ use yii\base\Model;
 
 /**
  * Class Twitter
- * @package cybercog\twittable\models
+ * @package cybercog\yii\twittable\models
  */
 class Twitter extends Model
 {
