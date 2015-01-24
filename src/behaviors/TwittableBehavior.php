@@ -11,6 +11,7 @@ use yii\base\Event;
 use yii\db\BaseActiveRecord;
 use yii\behaviors\AttributeBehavior;
 use cybercog\twittable\models\Twitter;
+use yii\helpers\Url;
 
 /**
  * TaggableBehavior
@@ -41,6 +42,10 @@ class TwittableBehavior extends AttributeBehavior
      */
     public $value;
 
+    public $consumerKey;
+    public $consumerSecret;
+    public $accessToken;
+    public $accessTokenSecret;
 
     /**
      * @inheritdoc
@@ -66,9 +71,14 @@ class TwittableBehavior extends AttributeBehavior
     {
         if ($this->value === null) {
             $message = $event->sender->title;
-            $url = Url::to(['view', 'id' => $event->sender->id], true);
+            $url = Url::to(['view', 'slug' => $event->sender->slug], true);
             $tags = $event->sender->tagNames;
-            $twitter = new Twitter();
+            $twitter = new Twitter([
+                'consumerKey' => $this->consumerKey,
+                'consumerSecret' => $this->consumerSecret,
+                'accessToken' => $this->accessToken,
+                'accessTokenSecret' => $this->accessTokenSecret,
+            ]);
             $tweetId = $twitter->statusUpdate($message, $url, $tags);
             return $tweetId;
         } else {
