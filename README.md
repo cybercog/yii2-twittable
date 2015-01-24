@@ -29,6 +29,7 @@ $ yii migrate/create news_tweet_link
 ```
 
 Open the `/path/to/migrations/m_xxxxxx_xxxxxx_news_tweet_link.php` file,
+
 inside the `up()` method add the following
 
 ```php
@@ -77,8 +78,8 @@ Everything is working automatically right now. When you are creating new model -
 
 ## Todo
 
-[] Configuring what to post: message, tags, url
-[] Handle twitter errors
-[] Manual posting of tweets if tweet isn't exist
-[] Tweets deletion
-[] Support Twitter cards
+- [ ] Configuring what to post: message, tags, url
+- [ ] Handle twitter errors
+- [ ] Manual posting of tweets if tweet isn't exist
+- [ ] Tweets deletion
+- [ ] Support Twitter cards
