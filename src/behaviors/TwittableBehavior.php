@@ -47,6 +47,12 @@ class TwittableBehavior extends AttributeBehavior
     public $accessTokenSecret;
 
     /**
+     * If setted to `true` will automatically tweet any created model
+     * @var bool
+     */
+    public $autoPosting = false;
+
+    /**
      * @inheritdoc
      */
     public function init()
@@ -61,27 +67,42 @@ class TwittableBehavior extends AttributeBehavior
     }
 
     /**
-     * Evaluates the value of the user.
+     * Evaluates the value of the tweet.
      * The return result of this method will be assigned to the current attribute(s).
      * @param Event $event
-     * @return mixed the value of the user.
+     * @return mixed the value of the tweet.
      */
     protected function getValue($event)
     {
         if ($this->value === null) {
-            $message = $event->sender->title;
-            $url = Url::to(['view', 'slug' => $event->sender->slug], true);
-            $tags = $event->sender->tagNames;
-            $twitter = new Twitter([
-                'consumerKey' => $this->consumerKey,
-                'consumerSecret' => $this->consumerSecret,
-                'accessToken' => $this->accessToken,
-                'accessTokenSecret' => $this->accessTokenSecret,
-            ]);
-            $tweetId = $twitter->statusUpdate($message, $url, $tags);
-            return $tweetId;
+            if ($this->autoPosting) {
+                $tweetId = $this->createTweet($event);
+            }
+            else {
+                $tweetId = null;
+            }
         } else {
-            return call_user_func($this->value, $event);
+            $tweetId = call_user_func($this->value, $event);
         }
+        return $tweetId;
+    }
+
+    /**
+     * Posting data to Twitter
+     * @param $event
+     * @return Int64
+     */
+    private function createTweet($event)
+    {
+        $message = $event->sender->title;
+        $url = Url::to(['view', 'slug' => $event->sender->slug], true);
+        $tags = $event->sender->tagNames;
+        $twitter = new Twitter([
+            'consumerKey' => $this->consumerKey,
+            'consumerSecret' => $this->consumerSecret,
+            'accessToken' => $this->accessToken,
+            'accessTokenSecret' => $this->accessTokenSecret,
+        ]);
+        return $twitter->statusUpdate($message, $url, $tags);
     }
 }
