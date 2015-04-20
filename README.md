@@ -1,5 +1,7 @@
 # Twittable Behavior for Yii2
 
+[![Join the chat at https://gitter.im/cybercog/yii2-twittable](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cybercog/yii2-twittable?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This extension provides behavior functions for tweeting.
 
 ## Installation
